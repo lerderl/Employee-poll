@@ -12,8 +12,15 @@ const App = props => {
   return (
     <Fragment>
       <LoadingBar />
+      <div className="container">
+        <header>Employee poll app</header>
+      </div>
     </Fragment>
   );
 };
 
-export default connect()(App);
+const mapStateToProps = ({ questions }) => ({
+  loading: questions === null
+});
+
+export default connect(mapStateToProps)(App);
