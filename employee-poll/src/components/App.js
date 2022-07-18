@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import { Fragment, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
 import { LoadingBar } from "react-redux-loading-bar";
 
+import LoginPage from "./LoginPage";
+import PageNotFound from "./PageNotFound";
 import { handleInitialData } from "../actions/shared";
 
 const App = props => {
@@ -13,7 +16,12 @@ const App = props => {
     <Fragment>
       <LoadingBar />
       <div className="container">
-        <header>Employee poll app</header>
+        {props.loading === true ? null : (
+          <Routes>
+            <Route path="*" element={<PageNotFound />} />
+            <Route exact path="/login" element={<LoginPage />} />
+          </Routes>
+        )}
       </div>
     </Fragment>
   );
