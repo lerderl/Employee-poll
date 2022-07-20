@@ -38,18 +38,18 @@ const NavBar = ({ user, authedUser, dispatch }) => {
             {authedUser ?? (
               <li className="form-control me-2">
                 <img src={user?.avatarURL} alt={`${authedUser}`} width="30" height="24" />
-                <span>{user?.name}</span>
+                <div>{user?.name}</div>
               </li>
             )}
             <li>
               {authedUser ? (
                 <div onClick={handleClick}>
-                  <span class="navbar-text">
+                  <Link to="/login" className="navbar-text">
                     Logout
-                  </span>
+                  </Link>
                 </div>
               ) : (
-                <Link to="/login">Login</Link>
+                <Link to="/login" className="navbar-text">Login</Link>
               )}
             </li>
           </ul>

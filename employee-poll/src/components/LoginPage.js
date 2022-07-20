@@ -11,7 +11,7 @@ const LoginPage = ({ userIds, users, dispatch }) => {
   const [optionSelected, setOptionSelected] = useState('');
 
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   const handleChange = e => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const LoginPage = ({ userIds, users, dispatch }) => {
 
     if (e.target.value !== '' && e.target.value !== 'none') {
       dispatch(setAuthedUser(e.target.value));
-      navigate(location?.state?.location);
+      // navigate(location?.state?.location);
     } else if (e.target.value === 'none') {
       dispatch(setAuthedUser(''));
       navigate('/login');
@@ -33,7 +33,7 @@ const LoginPage = ({ userIds, users, dispatch }) => {
 
   return (
     <div className='container'>
-      <h1 className='text-center mt-3'>Input your login details</h1>
+      <h1 className='text-center mt-3'>Select your username</h1>
       <form onSubmit={handleSubmit}>
         <select
           name='users'
@@ -47,23 +47,6 @@ const LoginPage = ({ userIds, users, dispatch }) => {
             return(
               <>
                 <option value={id} key={id}>{users[id].name}</option>
-              </>
-            );
-          })};
-        </select>
-
-        <select
-          name='users'
-          className="form-select mt-3"
-          onChange={handleChange}
-          defaultValue={optionSelected}
-          aria-label="Default select example"
-        >
-          <option value='none' key='none'></option>
-          {userIds.map(id => {
-            return(
-              <>
-                <option value={id} key={id}>{users[id].password}</option>
               </>
             );
           })};

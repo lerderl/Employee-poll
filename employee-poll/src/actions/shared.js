@@ -7,13 +7,14 @@ import { getInitialData } from "../utils/api";
 export function handleInitialData() {
   console.log('Getting initial data:');
 
-  return async dispatch => {
+  return dispatch => {
     dispatch(showLoading());
     console.log('Show loading');
 
-    const { users, questions } = await getInitialData();
-    dispatch(getUsers(users));
-    dispatch(getQuestions(questions));
-    dispatch(hideLoading());
+    return getInitialData().then(({ users, questions }) => {
+      dispatch(getUsers(users));
+      dispatch(getQuestions(questions));
+      dispatch(hideLoading());
+    });
   };
 };
