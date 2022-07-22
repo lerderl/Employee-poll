@@ -12,7 +12,7 @@ const Authenticate = props => {
     if (status) {
       navigate('/login', { state: { location: location.pathname } })
     };
-  }, []);
+  }, [props.status, location?.pathname, navigate]);
 };
 
 const mapStateToProps = ({ authedUser }) => {

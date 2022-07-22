@@ -48,6 +48,6 @@ export default function formatQuestion (question, author, authedUser) {
     isAuthor,
     totalVotes,
     optionOnePercent,
-    optionTwoPercent,
+    optionTwoPercent
   };
 };

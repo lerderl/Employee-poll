@@ -31,31 +31,55 @@ export function questionAnswer({ id, answer, authedUser }) {
 };
 
 export function handleAddQuestion({ optionOneText, optionTwoText }) {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { authedUser } = getState();
     dispatch(showLoading());
 
-    try {
-      const question = await saveQuestion({
-        optionOneText,
-        optionTwoText,
-        author: authedUser
-      });
+    return saveQuestion({
+      optionOneText,
+      optionTwoText,
+      author: authedUser
+    }).then(question => {
       dispatch(addQuestion(question));
       dispatch(saveQuestionToUser(question));
       dispatch(hideLoading());
-    } catch (e) {
+    }).catch(e => {
       console.log('Error occurred when adding question: ' + e);
-    }
+    });
   };
+  // return async (dispatch, getState) => {
+  //   const { authedUser } = getState();
+  //   dispatch(showLoading());
+
+  //   try {
+  //     const question = await saveQuestion({
+  //       optionOneText,
+  //       optionTwoText,
+  //       author: authedUser
+  //     });
+      // dispatch(addQuestion(question));
+      // dispatch(saveQuestionToUser(question));
+      // dispatch(hideLoading());
+  //   } catch (e) {
+  //     console.log('Error occurred when adding question: ' + e);
+  //   }
+  // };
 };
 
 export function handleAnswer(id, answer) {
-  return async (dispatch, getState) => {
+  return (dispatch, getState) => {
     const { authedUser } = getState();
 
-    await saveQuestionAnswer({ id, answer, authedUser });
-    dispatch(questionAnswer({ id, answer, authedUser }));
-    dispatch(saveAnswerToUser({ id, answer, authedUser }));
+    return saveQuestionAnswer({ id, answer, authedUser }).then(() => {
+      dispatch(questionAnswer({ id, answer, authedUser }));
+      dispatch(saveAnswerToUser({ id, answer, authedUser }));
+    });
   };
+  // return async (dispatch, getState) => {
+  //   const { authedUser } = getState();
+
+  //   await saveQuestionAnswer({ id, answer, authedUser });
+    // dispatch(questionAnswer({ id, answer, authedUser }));
+    // dispatch(saveAnswerToUser({ id, answer, authedUser }));
+  // };
 };

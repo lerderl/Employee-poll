@@ -7,6 +7,7 @@ import NavBar from "./NavBar";
 import Dashboard from "./Dashboard";
 import LoginPage from "./LoginPage";
 import PageNotFound from "./PageNotFound";
+import QuestionPage from "./QuestionPage";
 import { handleInitialData } from "../actions/shared";
 
 const App = props => {
@@ -24,6 +25,7 @@ const App = props => {
             <Route path="*" element={<PageNotFound />} />
             <Route exact path="/" element={<Dashboard />} />
             <Route exact path="/login" element={<LoginPage />} />
+            <Route exact path="/questions/:id" element={<QuestionPage />} />
           </Routes>
         )}
       </div>
