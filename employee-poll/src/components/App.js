@@ -3,10 +3,11 @@ import { Fragment, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { LoadingBar } from "react-redux-loading-bar";
 
+import NavBar from "./NavBar";
+import Dashboard from "./Dashboard";
 import LoginPage from "./LoginPage";
 import PageNotFound from "./PageNotFound";
 import { handleInitialData } from "../actions/shared";
-import NavBar from "./NavBar";
 
 const App = props => {
   useEffect(() => {
@@ -21,6 +22,7 @@ const App = props => {
         {props.loading === true ? null : (
           <Routes>
             <Route path="*" element={<PageNotFound />} />
+            <Route exact path="/" element={<Dashboard />} />
             <Route exact path="/login" element={<LoginPage />} />
           </Routes>
         )}
