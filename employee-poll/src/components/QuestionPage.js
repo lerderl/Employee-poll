@@ -8,8 +8,8 @@ import formatQuestion from "../utils/formatQuestion";
 
 const QuestionPage = ({ question, dispatch, id }) => {
 	console.log(`Question: ${question}`);
-  console.log(`${dispatch}`);
-  console.log(`Id: ${id}`);
+	console.log(`${dispatch}`);
+	console.log(`Id: ${id}`);
 	const navigate = useNavigate();
 
 	if (question === null) {
@@ -40,7 +40,7 @@ const QuestionPage = ({ question, dispatch, id }) => {
 			<Authenticate />
 			<div className="text-center">
 				Question by {name}
-				<img src={avatarURL} className="rounded mx-auto d-block gap-2 col-md-1" alt="..."></img>
+				<img src={avatarURL} className="rounded mx-auto d-block gap-2 col-md-1" alt="..." />
 			</div>
 			<div className="text-center">
 				<h6>Would you rather</h6>
@@ -50,7 +50,7 @@ const QuestionPage = ({ question, dispatch, id }) => {
             <button className="btn btn-primary" type="button" disabled>{voteSelected}</button>
             <hr />
             <h3>Vote Status:</h3>
-						<table className="table">
+						<table className="table table-bordered">
 							<thead>
 								<tr>
 									<th scope="col">#</th>

@@ -28,7 +28,7 @@ const NavBar = ({ user, authedUser, dispatch }) => {
               <Link className="nav-link active" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="#">Leaderboard</Link>
+              <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="#">New</Link>
