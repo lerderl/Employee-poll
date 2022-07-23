@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import image from "../images/avatar3.png"
+import image from "../images/avatar3.png";
 import Authenticate from "./Authenticate";
 
 const Leaderboard = ({ users }) => {

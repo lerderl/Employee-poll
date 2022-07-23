@@ -1,22 +1,11 @@
 import { connect } from "react-redux";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Authenticate from "./Authenticate";
-// import { withRouter } from "../utils/withRouter";
+import image from "../images/avatar3.png";
+import { withRouter } from "../utils/withRouter";
 import { handleAnswer } from "../actions/questions";
 import formatQuestion from "../utils/formatQuestion";
-
-const withRouter = Component => {
-  const ComponentWithRouterProp = props => {
-    let location = useLocation();
-    let navigate = useNavigate();
-    let params = useParams();
-
-    return <Component {...props} router={{ location, navigate, params }} />;
-  };
-
-  return ComponentWithRouterProp;
-};
 
 const QuestionPage = ({ question, dispatch, id }) => {
 	console.log(`Question: ${question}`);
@@ -52,7 +41,7 @@ const QuestionPage = ({ question, dispatch, id }) => {
 			<Authenticate />
 			<div className="text-center">
 				Question by {name}
-				<img src={avatarURL} className="rounded mx-auto d-block gap-2 col-md-1" alt="..." />
+				<img src={image} className="rounded mx-auto d-block gap-2 col-md-1" alt="..." />
 			</div>
 			<div className="text-center">
 				<h6>Would you rather</h6>
@@ -101,8 +90,8 @@ const QuestionPage = ({ question, dispatch, id }) => {
 	);
 };
 
-const mapStateToProps = ({ authedUser, users, questions }, {id}) => {
-	// const { id } = props.router.params;
+const mapStateToProps = ({ authedUser, users, questions }, props) => {
+	const { id } = props.router.params;
 	const question = questions[id];
 
 	return {

@@ -1,10 +1,12 @@
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Authenticate from "./Authenticate";
 import { handleAddQuestion } from "../actions/questions";
 
 const NewQuestion = ({ dispatch, authedUser }) => {
+  const navigate = useNavigate();
   const [firstOption, setFirstOption] = useState('');
   const [secondOption, setSecondOption] = useState('');
   const [success, setSuccess] = useState(false);
@@ -33,6 +35,7 @@ const NewQuestion = ({ dispatch, authedUser }) => {
 
     setFirstOption('');
     setSecondOption('');
+    navigate('/');
   };
 
   const optionOneChange = e => {
