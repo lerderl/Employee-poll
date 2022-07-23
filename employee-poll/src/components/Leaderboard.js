@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 
+import image from "../images/avatar3.png"
 import Authenticate from "./Authenticate";
 
 const Leaderboard = ({ users }) => {
@@ -23,7 +24,7 @@ const Leaderboard = ({ users }) => {
               <tr key={user.id}>
                 {console.log(user.avatarURL)}
                 <td>
-                  <img src={`${user.avatarURL}`} className="d-inline-block align-text-top" alt={`${user.id}`} />
+                  <img src={`${image}`} className="d-inline-block align-text-top" alt={`${user.id}`} width='30' height='24' />
                   {user.name}
                 </td>
                 <td>

@@ -1,38 +1,38 @@
-import { useState } from "react";
 import { connect } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import Authenticate from "./Authenticate";
 import { handleAddQuestion } from "../actions/questions";
 
 const NewQuestion = ({ dispatch, authedUser }) => {
-  const navigate = useNavigate();
-
   const [firstOption, setFirstOption] = useState('');
   const [secondOption, setSecondOption] = useState('');
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
+  useEffect(() => {
+    console.log({ success, error });
+  }, [success, error]);
+
   const handleSubmit = e => {
     e.preventDefault();
 
-    const question = {
-      optionOneText: firstOption,
-      optionTwoText: secondOption
-    };
+    if (firstOption !== '' & secondOption !== '') {
+      const question = {
+        optionOneText: firstOption,
+        optionTwoText: secondOption
+      };
 
-    try {
       dispatch(handleAddQuestion(question));
       setSuccess(true);
       setError(false);
-    } catch (e) {
+    } else {
       setSuccess(false);
       setError(true);
-    }
+    };
 
     setFirstOption('');
     setSecondOption('');
-    navigate('/');
   };
 
   const optionOneChange = e => {

@@ -1,10 +1,22 @@
 import { connect } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 
 import Authenticate from "./Authenticate";
-import { withRouter } from "../utils/withRouter";
+// import { withRouter } from "../utils/withRouter";
 import { handleAnswer } from "../actions/questions";
 import formatQuestion from "../utils/formatQuestion";
+
+const withRouter = Component => {
+  const ComponentWithRouterProp = props => {
+    let location = useLocation();
+    let navigate = useNavigate();
+    let params = useParams();
+
+    return <Component {...props} router={{ location, navigate, params }} />;
+  };
+
+  return ComponentWithRouterProp;
+};
 
 const QuestionPage = ({ question, dispatch, id }) => {
 	console.log(`Question: ${question}`);
@@ -89,8 +101,8 @@ const QuestionPage = ({ question, dispatch, id }) => {
 	);
 };
 
-const mapStateToProps = ({ authedUser, users, questions }, props) => {
-	const { id } = props.router.params;
+const mapStateToProps = ({ authedUser, users, questions }, {id}) => {
+	// const { id } = props.router.params;
 	const question = questions[id];
 
 	return {
