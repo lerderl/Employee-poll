@@ -13,7 +13,7 @@ const LoginPage = ({ userIds, users, dispatch }) => {
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
-  const location = useLocation();
+  // const location = useLocation();
 
   const handleChange = e => {
     e.preventDefault();
@@ -21,7 +21,7 @@ const LoginPage = ({ userIds, users, dispatch }) => {
 
     if (e.target.value !== '' && e.target.value !== 'none') {
       dispatch(setAuthedUser(e.target.value));
-      navigate(location?.state?.location);
+      // navigate(location?.state?.location);
     } else if (e.target.value === 'none') {
       dispatch(setAuthedUser(''));
       navigate('/login');

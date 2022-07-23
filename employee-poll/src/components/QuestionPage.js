@@ -21,7 +21,7 @@ const QuestionPage = ({ question, dispatch, id }) => {
 
 	const {
 		name,
-    avatarURL,
+    // avatarURL,
     optionOneText,
     optionTwoText,
     hasAnswer,
