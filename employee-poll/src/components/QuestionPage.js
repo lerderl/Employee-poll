@@ -4,10 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import Authenticate from "./Authenticate";
 import image from "../images/avatar3.png";
 import { withRouter } from "../utils/withRouter";
-import { handleAnswer } from "../actions/questions";
+import { questionAnswer } from "../actions/questions";
 import formatQuestion from "../utils/formatQuestion";
 
-const QuestionPage = ({ question, dispatch, id }) => {
+const QuestionPage = ({ question, dispatch, id, authedUser }) => {
 	console.log(`Question: ${question}`);
 	console.log(`${dispatch}`);
 	console.log(`Id: ${id}`);
@@ -32,7 +32,7 @@ const QuestionPage = ({ question, dispatch, id }) => {
 	} = question;
 
 	const handleClick = answer => {
-		dispatch(handleAnswer(id, answer));
+		dispatch(questionAnswer({ id, answer, authedUser}));
 		navigate(`/questions/${id}`);
 	};
 
