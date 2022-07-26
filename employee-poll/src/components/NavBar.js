@@ -35,12 +35,15 @@ const NavBar = ({ user, authedUser, dispatch }) => {
             </li>
           </ul>
           <ul className="d-flex">
-            {authedUser ?? (
-              <li className="form-control me-2">
-                <img src={user?.avatarURL} alt={`${authedUser}`} width="30" height="24" />
-                <div>{user?.name}</div>
-              </li>
-            )}
+            {authedUser ? (
+              <>
+                {console.log("User image: ", user?.avatarURL)}
+                {/* <li className="form-control me-2"> */}
+                <img src={user?.avatarURL} alt={`${authedUser}`} width="10" height="24" style={{ marginRight: "30px" }} />
+                <span style={{ marginRight: "30px" }}>{user?.name}</span>
+                {/* </li> */}
+              </>
+            ) : null}
             <li>
               {authedUser ? (
                 <div onClick={handleClick}>
