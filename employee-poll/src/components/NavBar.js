@@ -41,11 +41,8 @@ const NavBar = ({ user, authedUser, dispatch }) => {
           <ul className="d-flex">
             {authedUser ? (
               <>
-                {console.log("User image: ", user?.avatarURL)}
-                {/* <li className="form-control me-2"> */}
                 <img src={user?.avatarURL} alt={`${authedUser}`} width="10" height="24" style={{ marginRight: "30px" }} />
                 <span style={{ marginRight: "30px" }}>{user?.name}</span>
-                {/* </li> */}
               </>
             ) : null}
             <li>

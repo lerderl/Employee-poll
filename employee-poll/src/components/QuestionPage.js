@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Authenticate from "./Authenticate";
 import image from "../images/avatar3.png";
@@ -9,9 +9,6 @@ import { questionAnswer } from "../actions/questions";
 import formatQuestion from "../utils/formatQuestion";
 
 const QuestionPage = ({ question, dispatch, id, authedUser }) => {
-	console.log(`Question: ${question}`);
-	console.log(`${dispatch}`);
-	console.log(`Id: ${id}`);
 	const navigate = useNavigate();
 
 	if (question === null) {

@@ -58,13 +58,13 @@ const NewQuestion = ({ dispatch, authedUser }) => {
       <h1 className="text-dark">Would you rather</h1>
       <h6 className="text-secondary">Create your own poll</h6>
       <form onSubmit={handleSubmit}>
-        <div class="mb-3">
-          <label htmlFor="firstOptionValue" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="firstOptionValue" className="form-label">
             First Option
           </label>
           <input
             value={firstOption}
-            class="form-control"
+            className="form-control"
             name="firstOptionValue"
             placeholder="Option One"
             onChange={optionOneChange}
@@ -72,13 +72,13 @@ const NewQuestion = ({ dispatch, authedUser }) => {
             required
           />
         </div>
-        <div class="mb-3">
-          <label htmlFor="secondOptionValue" class="form-label">
+        <div className="mb-3">
+          <label htmlFor="secondOptionValue" className="form-label">
             Second option
           </label>
           <input
             value={secondOption}
-            class="form-control"
+            className="form-control"
             name="secondOptionValue"
             placeholder="Option Two"
             onChange={optionTwoChange}
