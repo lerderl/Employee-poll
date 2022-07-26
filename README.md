@@ -45,7 +45,7 @@ You can use the above command to run all of the unit tests on this project.
 
 4. You'll be taken to the leaderboard page if you click **Leaderboard** in the navigation bar. All users are listed here, sorted by the number of polls they have created and the number of polls they have answered.
 
-5. Clicking **Create New Poll** in the navigation bar will take you to a page where you can create a new poll. Simply enter the two options and click the **Create Poll** button. Your poll will be created, and you will be directed to the dashboard, where it will appear in the **Unanswered Polls** category.
+5. Clicking **New** in the navigation bar will take you to a page where you can create a new poll. Simply enter the two options and click the **Submit** button. Your poll will be created, and you will be directed to the dashboard, where it will appear in the **New Questions** category.
 
 ## Author and Developer
 
