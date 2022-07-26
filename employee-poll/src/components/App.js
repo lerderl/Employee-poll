@@ -26,7 +26,7 @@ const App = props => {
           <Routes>
             <Route path="*" element={<PageNotFound />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/new" element={<NewQuestion />} />
+            <Route path="/add" element={<NewQuestion />} />
             <Route exact path="/" element={<Dashboard />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/questions/:id" element={<QuestionPage />} />

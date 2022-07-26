@@ -31,7 +31,7 @@ const NavBar = ({ user, authedUser, dispatch }) => {
               <Link className="nav-link" to="/leaderboard">Leaderboard</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/new">New</Link>
+              <Link className="nav-link" to="/add">New</Link>
             </li>
           </ul>
           <ul className="d-flex">
