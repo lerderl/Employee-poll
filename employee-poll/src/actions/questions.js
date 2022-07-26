@@ -47,23 +47,6 @@ export function handleAddQuestion({ optionOneText, optionTwoText }) {
       console.log('Error occurred when adding question: ' + e);
     });
   };
-  // return async (dispatch, getState) => {
-  //   const { authedUser } = getState();
-  //   dispatch(showLoading());
-
-  //   try {
-  //     const question = await saveQuestion({
-  //       optionOneText,
-  //       optionTwoText,
-  //       author: authedUser
-  //     });
-      // dispatch(addQuestion(question));
-      // dispatch(saveQuestionToUser(question));
-      // dispatch(hideLoading());
-  //   } catch (e) {
-  //     console.log('Error occurred when adding question: ' + e);
-  //   }
-  // };
 };
 
 export function handleAnswer(id, answer) {
@@ -75,11 +58,4 @@ export function handleAnswer(id, answer) {
       dispatch(saveAnswerToUser({ id, answer, authedUser }));
     });
   };
-  // return async (dispatch, getState) => {
-  //   const { authedUser } = getState();
-
-  //   await saveQuestionAnswer({ id, answer, authedUser });
-    // dispatch(questionAnswer({ id, answer, authedUser }));
-    // dispatch(saveAnswerToUser({ id, answer, authedUser }));
-  // };
 };

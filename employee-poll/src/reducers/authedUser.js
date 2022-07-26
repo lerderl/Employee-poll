@@ -7,7 +7,7 @@ export default function authedUser(state = null, action) {
 
     case LOGOUT_AUTHED_USER:
       return null;
-  
+
     default:
       return state;
   };

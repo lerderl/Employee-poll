@@ -5,9 +5,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { setAuthedUser } from '../actions/authedUser';
 
 const LoginPage = ({ userIds, users, dispatch }) => {
-  // console.log(`LoginPage - userIds: ${JSON.stringify(userIds)}`);
-  // console.log(`LoginPage - Users: ${JSON.stringify(users)}`);
-  // console.log('User ids: ', userIds);
   const [optionSelected, setOptionSelected] = useState('');
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);

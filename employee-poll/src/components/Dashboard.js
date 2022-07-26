@@ -10,7 +10,7 @@ const Dashboard = ({ votedFor, notVotedFor, users }) => {
   const handleClick = () => {
     setAnsweredQuestions(!answeredQuestions);
   };
-  
+
   return (
     <div>
       <Authenticate />
@@ -42,9 +42,9 @@ const Dashboard = ({ votedFor, notVotedFor, users }) => {
             </div>
         </div>
       )}
-      
 
-      
+
+
     </div>
   );
 };
@@ -59,7 +59,7 @@ const mapStateToProps = ({ authedUser, questions, users }) => {
         question.optionOne.votes.includes(authedUser)
     )
     .sort((a, b) => b.timestamp - a.timestamp);
-  
+
   const notVotedFor = voteCount
     .filter(question => !votedFor.includes(question))
     .sort((a, b) => b.timestamp - a.timestamp);
