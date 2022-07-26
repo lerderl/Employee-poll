@@ -2,97 +2,51 @@
 
 This is the starter code for the final assessment project for Udacity's React & Redux course.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+The `_DATA.js` file represents a fake database and methods that let one access the data. 
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+This application allows employees of a company to create polls and vote on polls created by other employees. The main goal of this app is to improve employee collaboration and transparency. A user can create a new Poll, respond to an existing Poll, view information on polls created and answered by other employees on the leaderboard, see the votes for each poll, and so on.
 
-## Data
+It was created with the following ideas in mind:
 
-There are two types of objects stored in our database:
+- State Management
+- Redux
+- Routing
 
-* Users
-* Questions
+## QuickStart
 
-### Users
+Perform the following steps to get this application up and running:
 
-Users include:
+- Run the `<git clone repo-link>` command on your local machine to clone the project.
+- Launch your preferred text editor and open that project.
+- Navigate to the `employee-poll` directory.
+- To install the dependencies, run `npm install`.
+- Run `npm start` to start the development server
 
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| password   | String           | The user’s password in order to log in the application |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+This will run the app in the development mode.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Questions
+And you're all set!
 
-Questions include:
+## Testing Instructions
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
+`npm run test`
 
-### Voting Options
+You can use the above command to run all of the unit tests on this project.
 
-Voting options are attached to questions. They include:
+## Features
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
+1. The dropdown list menu allows users to login using previously created users.
 
-Your code will talk to the database via 4 methods:
+2. The first page you'll see after logging in is a dashboard. To help you navigate the app, there will be a navigation bar at the top. The dashboard displays information about the logged in user as well as his or her unanswered poll. The user can also toggle to see his or her poll results.
 
-* `_getUsers()`
-* `_getQuestions()`
-* `_saveQuestion(question)`
-* `_saveQuestionAnswer(object)`
+3. When you click a poll on the dashboard, all of the poll's details will be displayed.
+   If the poll is unanswered, you will be asked to respond. When you respond, the details of all the votes (including yours) will be displayed.
+   If the poll is answered, all of the details will be displayed.
 
-1) `_getUsers()` Method
+4. You'll be taken to the leaderboard page if you click **Leaderboard** in the navigation bar. All users are listed here, sorted by the number of polls they have created and the number of polls they have answered.
 
-*Description*: Get all of the existing users from the database.  
-*Return Value*: Object where the key is the user’s id and the value is the user object.
+5. Clicking **Create New Poll** in the navigation bar will take you to a page where you can create a new poll. Simply enter the two options and click the **Create Poll** button. Your poll will be created, and you will be directed to the dashboard, where it will appear in the **Unanswered Polls** category.
 
-2) `_getQuestions()` Method
+## Author and Developer
 
-*Description*: Get all of the existing questions from the database.  
-*Return Value*: Object where the key is the question’s id and the value is the question object.
-
-3) `_saveQuestion(question)` Method
-
-*Description*: Save the polling question in the database. If one of the parameters are missing, an error is thrown.
-*Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| author | String | The id of the user who posted the question|
-| optionOneText| String | The text of the first option |
-| optionTwoText | String | The text of the second option |
-
-*Return Value*:  An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id | String | The id of the question that was posted|
-| author | String | The id of the user who posted the question|
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-|timestamp|String | The time when the question was created|
-
-4) `_saveQuestionAnswer(object)` Method
-
-*Description*: Save the answer to a particular polling question in the database. If one of the parameters are missing, an error is thrown.
-*Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| authedUser | String | The id of the user who answered the question|
-| qid | String | The id of the question that was answered|
-| answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
-
+**Joseph Olukunle**
