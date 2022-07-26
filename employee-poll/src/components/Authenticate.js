@@ -10,7 +10,7 @@ const Authenticate = props => {
     const status = props.status;
 
     if (status) {
-      navigate('/login', { state: { location: location.pathname } })
+      navigate('/login', { state: { location: location.pathname } });
     };
   }, [props.status, location?.pathname, navigate]);
 };

@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import Authenticate from "./Authenticate";
 import image from "../images/avatar3.png";
+import PageNotFound from "./PageNotFound";
 import { withRouter } from "../utils/withRouter";
 import { questionAnswer } from "../actions/questions";
 import formatQuestion from "../utils/formatQuestion";
@@ -15,7 +16,7 @@ const QuestionPage = ({ question, dispatch, id, authedUser }) => {
 
 	if (question === null) {
 		return (
-			<Link to='/'>Go back to Dashboard</Link>
+			<PageNotFound />
 		);
 	};
 
@@ -48,9 +49,11 @@ const QuestionPage = ({ question, dispatch, id, authedUser }) => {
 				{hasAnswer ? (
 					<div>
 						<span>You have already answered this question.</span>
-            <button className="btn btn-primary" type="button" disabled>{voteSelected}</button>
+            <p>Your choice: <button className="btn btn-primary" type="button" disabled>{voteSelected}</button></p>
             <hr />
             <h3>Vote Status:</h3>
+            <p>Option one: <button className="btn btn-primary" type="button" disabled>{optionOneText}</button></p>
+            <p>Option two: <button className="btn btn-primary mt-3 mb-3" type="button" disabled>{optionTwoText}</button></p>
 						<table className="table table-bordered">
 							<thead>
 								<tr>

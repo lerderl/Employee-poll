@@ -56,7 +56,7 @@ const mapStateToProps = ({ authedUser, questions, users }) => {
     .filter(
       question =>
         question.optionOne.votes.includes(authedUser) ||
-        question.optionOne.votes.includes(authedUser)
+        question.optionTwo.votes.includes(authedUser)
     )
     .sort((a, b) => b.timestamp - a.timestamp);
 
