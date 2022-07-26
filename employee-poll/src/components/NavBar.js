@@ -1,11 +1,15 @@
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { logoutAuthedUser } from "../actions/authedUser";
 
 const NavBar = ({ user, authedUser, dispatch }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleClick = () => {
     dispatch(logoutAuthedUser());
+    navigate(location?.pathname);
   };
 
   return (
